@@ -1,0 +1,23 @@
+﻿@model List<Asp.NetCore_Playlist.Models.Employee>;
+<a href="~/lib/bootstrap/dist/css/bootstrap.css.map">~/lib/bootstrap/dist/css/bootstrap.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">~/lib/bootstrap/dist/css/bootstrap.min.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map</a>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+@{
+    
+}
+    @foreach(var data in Model)
+{
+    <h1>Department Name : @data.Department</h1><br />
+    <h1>Email : @data.Email</h1><br />
+    <h1>Name : @data.Name</h1><br />
+
+}
+@section newsection
+{
+    <script src="~/js/customefile.js"></script>
+}

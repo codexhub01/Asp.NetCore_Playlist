@@ -1,6 +1,7 @@
 using Asp.NetCore_Playlist.Models;
 using Asp.NetCore_Playlist.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -76,6 +77,20 @@ namespace Asp.NetCore_Playlist.Controllers
             return View();
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult Create(Employee emp)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeRepository.UpdateFormData(emp);
+                return RedirectToAction("Create");
+            }
+            return View(emp);
+        }
     }
 }

@@ -43,5 +43,9 @@
             }
             return _employee;
         }
+        public bool UpdateFormData(Employee emp)
+        {
+            return true;
+        }
     }
 }

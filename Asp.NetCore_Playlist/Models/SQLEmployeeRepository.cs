@@ -42,5 +42,12 @@
         {
             return _appdbcontext.Employees.ToList();
         }
+
+        public bool UpdateFormData(Employee emp)
+        {
+            _appdbcontext.Employees.Add(emp);
+            _appdbcontext.SaveChanges();
+            return true;
+        }
     }
 }

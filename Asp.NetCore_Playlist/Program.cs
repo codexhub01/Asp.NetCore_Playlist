@@ -7,7 +7,7 @@ builder.Services.AddMvc(); // to add all mvc services we required
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+//builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 

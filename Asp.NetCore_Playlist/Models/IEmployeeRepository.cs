@@ -7,7 +7,7 @@
 
         Employee Update(Employee employee);
 
-       
+        public bool UpdateFormData(Employee emp);
 
         //Employee Add(Employee employee);
     }

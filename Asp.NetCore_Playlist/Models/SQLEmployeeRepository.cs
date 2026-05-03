@@ -1,4 +1,6 @@
-﻿namespace Asp.NetCore_Playlist.Models
+﻿using Asp.NetCore_Playlist.ViewModels;
+
+namespace Asp.NetCore_Playlist.Models
 {
     public class SQLEmployeeRepository : IEmployeeRepository
     {
@@ -43,9 +45,16 @@
             return _appdbcontext.Employees.ToList();
         }
 
-        public bool UpdateFormData(Employee emp)
+        public bool UpdateFormData(EmployeeViewModel emp)
         {
-            _appdbcontext.Employees.Add(emp);
+            Employee obj = new Employee();
+            obj.Address = emp.Address;
+            obj.Name = emp.Name;
+            obj.Email = emp.Email;
+            obj.Department = emp.Department;
+            obj.FilePath = emp.File.FileName;
+            obj.OrgName = emp.OrgName;
+            _appdbcontext.Employees.Add(obj);
             _appdbcontext.SaveChanges();
             return true;
         }

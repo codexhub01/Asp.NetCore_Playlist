@@ -1,4 +1,6 @@
-﻿namespace Asp.NetCore_Playlist.Models
+﻿using Asp.NetCore_Playlist.ViewModels;
+
+namespace Asp.NetCore_Playlist.Models
 {
     public interface IEmployeeRepository
     {
@@ -7,7 +9,7 @@
 
         Employee Update(Employee employee);
 
-        public bool UpdateFormData(Employee emp);
+        public bool UpdateFormData(EmployeeViewModel emp);
 
         //Employee Add(Employee employee);
     }

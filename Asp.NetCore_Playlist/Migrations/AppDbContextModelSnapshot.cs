@@ -41,6 +41,10 @@ namespace Asp.NetCore_Playlist.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,6 +64,7 @@ namespace Asp.NetCore_Playlist.Migrations
                             Address = "Guragon",
                             Department = "cse",
                             Email = "om@gmail.com",
+                            FilePath = "",
                             Name = "Omkara",
                             OrgName = "amd"
                         });

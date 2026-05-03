@@ -1,4 +1,6 @@
-﻿namespace Asp.NetCore_Playlist.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Asp.NetCore_Playlist.Models
 {
     public class Employee
     {
@@ -8,5 +10,9 @@
         public string Department { get; set; }
         public string Address { get; set; }
         public string OrgName { get; set; }
+        public string FilePath { get; set; } 
+
+        //[NotMapped]
+        //public IFormFile File { get; set; }
     }
 }

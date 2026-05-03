@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Asp.NetCore_Playlist.Controllers
 {
@@ -14,9 +15,11 @@ namespace Asp.NetCore_Playlist.Controllers
         
         //This home controller is not creating an instance of IEmployeeRepository using new keyword instead of it we are injecting it into this constructor
         private readonly IEmployeeRepository _employeeRepository;
-        public HomeController(IEmployeeRepository employeeRepository)
+        private readonly IHostingEnvironment _hostingenviornment;
+        public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment)
         {
             _employeeRepository = employeeRepository;
+            _hostingenviornment = hostingEnvironment;
 
             //_employeeRepository = new MockEmployeeRepository(); -> We are not doing this because its tightly bind with this controller & we have many controller also which creates an issue
 
@@ -83,10 +86,14 @@ namespace Asp.NetCore_Playlist.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee emp)
+        public IActionResult Create(EmployeeViewModel emp)
         {
             if (ModelState.IsValid)
             {
+               string localuploadfilepath =  Path.Combine(_hostingenviornment.WebRootPath, "images");
+                string uniquefilename = Guid.NewGuid().ToString() + "_" + emp.File.FileName;
+                string filepath = Path.Combine(localuploadfilepath, uniquefilename);
+                emp.File.CopyTo(new FileStream(filepath, FileMode.Create));
                 _employeeRepository.UpdateFormData(emp);
                 return RedirectToAction("Create");
             }

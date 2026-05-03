@@ -23,7 +23,8 @@ namespace Asp.NetCore_Playlist.Models
                         Name="Omkara",
                         Email="om@gmail.com",
                         Address="Guragon",
-                        OrgName="amd"
+                        OrgName="amd",
+                        FilePath=""
                     }
                 );
         }

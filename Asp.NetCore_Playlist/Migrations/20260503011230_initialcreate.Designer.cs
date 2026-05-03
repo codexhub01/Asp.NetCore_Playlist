@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Asp.NetCore_Playlist.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260429160119_new_updated_migration")]
-    partial class new_updated_migration
+    [Migration("20260503011230_initialcreate")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,10 @@ namespace Asp.NetCore_Playlist.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,6 +67,7 @@ namespace Asp.NetCore_Playlist.Migrations
                             Address = "Guragon",
                             Department = "cse",
                             Email = "om@gmail.com",
+                            FilePath = "",
                             Name = "Omkara",
                             OrgName = "amd"
                         });

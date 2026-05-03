@@ -1,5 +1,6 @@
-﻿@model Asp.NetCore_Playlist.Models.Employee
-<form asp-action="Create" method="post">
+﻿@model Asp.NetCore_Playlist.ViewModels.EmployeeViewModel
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
 
     <label>Name</label>
     <input asp-for="Name" />
@@ -19,6 +20,10 @@
 
     <label>Org Name</label>
     <input asp-for="OrgName" />
+    <br />
+
+    <label>Select File</label>
+    <input type="file" asp-for="File" />
     <br />
 
     <button type="submit">Save</button>

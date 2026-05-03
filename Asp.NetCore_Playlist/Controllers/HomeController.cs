@@ -91,9 +91,13 @@ namespace Asp.NetCore_Playlist.Controllers
             if (ModelState.IsValid)
             {
                string localuploadfilepath =  Path.Combine(_hostingenviornment.WebRootPath, "images");
-                string uniquefilename = Guid.NewGuid().ToString() + "_" + emp.File.FileName;
-                string filepath = Path.Combine(localuploadfilepath, uniquefilename);
-                emp.File.CopyTo(new FileStream(filepath, FileMode.Create));
+                foreach(IFormFile filepathdata in emp.Files)
+                {
+                    string uniquefilename = Guid.NewGuid().ToString() + "_" + filepathdata.FileName;
+                    string filepath = Path.Combine(localuploadfilepath, uniquefilename);
+                    //filepathdata.CopyTo(new FileStream(filepath, FileMode.Create));
+                }
+             
                 _employeeRepository.UpdateFormData(emp);
                 return RedirectToAction("Create");
             }

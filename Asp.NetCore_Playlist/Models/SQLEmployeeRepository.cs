@@ -52,7 +52,7 @@ namespace Asp.NetCore_Playlist.Models
             obj.Name = emp.Name;
             obj.Email = emp.Email;
             obj.Department = emp.Department;
-            obj.FilePath = emp.File.FileName;
+            //obj.FilePath = emp.Files.FileName;
             obj.OrgName = emp.OrgName;
             _appdbcontext.Employees.Add(obj);
             _appdbcontext.SaveChanges();

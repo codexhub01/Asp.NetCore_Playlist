@@ -41,7 +41,7 @@ namespace Asp.NetCore_Playlist.Controllers
         [Route("Home/newmet/{id}")]
         public ActionResult MethodM1(int id)
         {
-            Employee data = _employeeRepository.GetEmployee(1);
+            Employee data = _employeeRepository.GetEmployee(id);
 
             HomeMethodM1ViewModel hmvm = new HomeMethodM1ViewModel()
             {
@@ -50,7 +50,6 @@ namespace Asp.NetCore_Playlist.Controllers
 
             };
 
-            
             return View(hmvm);
         }
 
@@ -106,17 +105,27 @@ namespace Asp.NetCore_Playlist.Controllers
 
         public ActionResult Edit(int id)
         {
-            List<Employee> data = _employeeRepository.GetAllEmployees().Where(s => s.Id == id).ToList();
-            EditEmployeeModel eeml = new EditEmployeeModel
+            try
             {
-                Id = data[0].Id,
-                Name = data[0].Name,
-                Department = data[0].Department,
-                Email = data[0].Email,
-                Address = data[0].Address
-            };
+                List<Employee> data = _employeeRepository.GetAllEmployees().Where(s => s.Id == id).ToList();
+                EditEmployeeModel eeml = new EditEmployeeModel
+                {
+                    Id = data[0].Id,
+                    Name = data[0].Name,
+                    Department = data[0].Department,
+                    Email = data[0].Email,
+                    Address = data[0].Address
+                };
 
-            return View(eeml);
+                return View(eeml);
+            }
+            catch(Exception ex)
+            {
+                return View("CustomErrorMessage");
+            }
+            
+
+            return View();
         }
 
         [HttpPost]

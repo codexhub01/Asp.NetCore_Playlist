@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Data Not Found";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    }
+
+    .error-container {
+        height: 100vh;
+    }
+
+    .error-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .error-icon {
+        font-size: 90px;
+    }
+
+    .error-title {
+        font-size: 38px;
+        font-weight: bold;
+    }
+
+    .error-message {
+        font-size: 18px;
+        color: #6c757d;
+    }
+
+    .custom-btn {
+        padding: 10px 25px;
+        font-size: 17px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .custom-btn:hover {
+        transform: scale(1.05);
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="container error-container d-flex justify-content-center align-items-center">
+
+    <div class="card shadow-lg error-card col-md-6">
+
+        <div class="card-body text-center p-5">
+
+            <div class="error-icon text-danger mb-4">
+                ⚠️
+            </div>
+
+            <h1 class="error-title text-dark mb-3">
+                Data Not Found
+            </h1>
+
+            <p class="error-message mb-4">
+                We couldn't find the employee details you are looking for.
+                <br />
+                The data may have been removed or does not exist.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+
+                <a asp-action="Index"
+                       asp-controller="Employee"
+                       class="btn btn-primary custom-btn">
+                    Go Back
+                </a>
+
+                <a asp-action="Create"
+                       asp-controller="Employee"
+                       class="btn btn-outline-success custom-btn">
+                    Add Employee
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```

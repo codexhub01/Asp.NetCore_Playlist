@@ -1,4 +1,6 @@
+using Asp.NetCore_Playlist.Controllers;
 using Asp.NetCore_Playlist.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
@@ -19,7 +21,7 @@ builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 // Here AddDbContextPool checks if there's alraedy instance created then use that only instaed of creating brand new isntance 
 builder.Services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDBConnection")));
 
-
+//builder.Services.AddIdentity<useraccess , IdentityRole>().AddEntityFrameworkStores<AppDbContext>
 
 var app = builder.Build();
 

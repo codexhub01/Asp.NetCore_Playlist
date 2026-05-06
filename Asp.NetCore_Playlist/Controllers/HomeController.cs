@@ -1,5 +1,6 @@
 using Asp.NetCore_Playlist.Models;
 using Asp.NetCore_Playlist.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -8,6 +9,10 @@ using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Asp.NetCore_Playlist.Controllers
 {
+    public class useraccess : IdentityUser
+    {
+       
+    }
     
     public class HomeController : Controller // this Controller class present in Microsoft.AspNetCore.Mvc
     {
@@ -17,6 +22,8 @@ namespace Asp.NetCore_Playlist.Controllers
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IHostingEnvironment _hostingenviornment;
         private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<useraccess> _usermanager;
+        private readonly SignInManager<useraccess> _signmanager;
         public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
         {
             _employeeRepository = employeeRepository;

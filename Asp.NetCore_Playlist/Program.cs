@@ -1,7 +1,11 @@
 using Asp.NetCore_Playlist.Models;
 using Microsoft.EntityFrameworkCore;
+using NLog;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
 builder.Services.AddMvc(); // to add all mvc services we required 
 
@@ -22,6 +26,10 @@ var app = builder.Build();
 //This is a method which response to an every object
 //app.Run();
 
+//remove default loggers
+builder.Logging.ClearProviders();
+
+builder.Host.UseNLog();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

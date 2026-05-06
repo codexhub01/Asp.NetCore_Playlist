@@ -109,12 +109,21 @@ namespace Asp.NetCore_Playlist.Controllers
             List<Employee> data = _employeeRepository.GetAllEmployees().Where(s => s.Id == id).ToList();
             EditEmployeeModel eeml = new EditEmployeeModel
             {
+                Id = data[0].Id,
                 Name = data[0].Name,
                 Department = data[0].Department,
                 Email = data[0].Email,
                 Address = data[0].Address
             };
 
+            return View(eeml);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditEmployeeModel eeml)
+        {
+            bool value = _employeeRepository.UpdateEditData(eeml); 
+            
             return View(eeml);
         }
     }

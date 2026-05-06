@@ -2,7 +2,7 @@
 
 namespace Asp.NetCore_Playlist.Models
 {
-    public class MockEmployeeRepository : IEmployeeRepository
+    public class MockEmployeeRepository 
     {
         private List<Employee> _emplist;
         public MockEmployeeRepository()

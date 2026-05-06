@@ -58,5 +58,15 @@ namespace Asp.NetCore_Playlist.Models
             _appdbcontext.SaveChanges();
             return obj.Id;
         }
+        public bool UpdateEditData(EditEmployeeModel emp)
+        {
+            var data = _appdbcontext.Employees.Where(s => s.Id == emp.Id).ToList();
+            data[0].Name = emp.Name;
+            data[0].Address = emp.Address;
+            data[0].Email = emp.Email;
+            data[0].Department = emp.Department;
+            _appdbcontext.SaveChanges();
+            return true;
+        }
     }
 }

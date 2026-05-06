@@ -2,6 +2,6 @@
 {
     public class EditEmployeeModel : EmployeeViewModel
     {
-        public int id;
+        public int Id { get; set; }
     }
 }

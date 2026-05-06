@@ -45,9 +45,9 @@ namespace Asp.NetCore_Playlist.Models
             }
             return _employee;
         }
-        public bool UpdateFormData(EmployeeViewModel emp)
+        public int UpdateFormData(EmployeeViewModel emp)
         {
-            return true;
+            return 0;
         }
     }
 }

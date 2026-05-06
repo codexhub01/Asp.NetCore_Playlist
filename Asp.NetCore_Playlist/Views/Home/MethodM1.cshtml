@@ -1,5 +1,24 @@
-﻿@model Asp.NetCore_Playlist.Models.Employee
+﻿@model Asp.NetCore_Playlist.ViewModels.HomeMethodM1ViewModel;
 
-<h1>
-    "Department Name : " @Model.Department
-</h1>
+<h2>Employee Details</h2>
+
+<table border="1">
+    <tr><th>Name</th><td>@Model.Employee.Name</td></tr>
+    <tr><th>Email</th><td>@Model.Employee.Email</td></tr>
+    <tr><th>Department</th><td>@Model.Employee.Department</td></tr>
+    <tr><th>Address</th><td>@Model.Employee.Address</td></tr>
+    <tr><th>Org Name</th><td>@Model.Employee.OrgName</td></tr>
+</table>
+
+@if (!string.IsNullOrEmpty(Model.Employee.FilePath))
+{
+    <p>
+        <a href="@Model.Employee.FilePath" target="_blank">Download / View File</a>
+    </p>
+}
+
+<br />
+
+<a asp-action="Edit" asp-route-id="@Model.Employee.Id">
+    <button type="button">Edit</button>
+</a>

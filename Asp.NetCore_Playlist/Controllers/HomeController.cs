@@ -51,7 +51,7 @@ namespace Asp.NetCore_Playlist.Controllers
             };
 
             
-            return View(data);
+            return View(hmvm);
         }
 
         public ActionResult NewMethod()
@@ -98,10 +98,24 @@ namespace Asp.NetCore_Playlist.Controllers
                     //filepathdata.CopyTo(new FileStream(filepath, FileMode.Create));
                 }
              
-                _employeeRepository.UpdateFormData(emp);
-                return RedirectToAction("Create");
+                int id = _employeeRepository.UpdateFormData(emp);
+                return RedirectToAction("MethodM1", new { id = id });
             }
             return View(emp);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            List<Employee> data = _employeeRepository.GetAllEmployees().Where(s => s.Id == id).ToList();
+            EditEmployeeModel eeml = new EditEmployeeModel
+            {
+                Name = data[0].Name,
+                Department = data[0].Department,
+                Email = data[0].Email,
+                Address = data[0].Address
+            };
+
+            return View(eeml);
         }
     }
 }

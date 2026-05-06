@@ -9,7 +9,7 @@ namespace Asp.NetCore_Playlist.Models
 
         Employee Update(Employee employee);
 
-        public bool UpdateFormData(EmployeeViewModel emp);
+        public int UpdateFormData(EmployeeViewModel emp);
 
         //Employee Add(Employee employee);
     }

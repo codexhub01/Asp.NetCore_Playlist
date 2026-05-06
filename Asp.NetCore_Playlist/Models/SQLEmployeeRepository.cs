@@ -45,18 +45,18 @@ namespace Asp.NetCore_Playlist.Models
             return _appdbcontext.Employees.ToList();
         }
 
-        public bool UpdateFormData(EmployeeViewModel emp)
+        public int UpdateFormData(EmployeeViewModel emp)
         {
             Employee obj = new Employee();
             obj.Address = emp.Address;
             obj.Name = emp.Name;
             obj.Email = emp.Email;
             obj.Department = emp.Department;
-            //obj.FilePath = emp.Files.FileName;
+            obj.FilePath = "";
             obj.OrgName = emp.OrgName;
             _appdbcontext.Employees.Add(obj);
             _appdbcontext.SaveChanges();
-            return true;
+            return obj.Id;
         }
     }
 }

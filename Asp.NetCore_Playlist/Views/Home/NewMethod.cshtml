@@ -1,22 +1,74 @@
-﻿@model List<Asp.NetCore_Playlist.Models.Employee>;
-<a href="~/lib/bootstrap/dist/css/bootstrap.css.map">~/lib/bootstrap/dist/css/bootstrap.css.map</a>
-<a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">~/lib/bootstrap/dist/css/bootstrap.min.css.map</a>
-<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.css.map</a>
-<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map</a>
-<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
-<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
-<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-@{
-    
-}
-    @foreach(var data in Model)
-{
-    <h1>Department Name : @data.Department</h1><br />
-    <h1>Email : @data.Email</h1><br />
-    <h1>Name : @data.Name</h1><br />
+﻿@model List<Asp.NetCore_Playlist.Models.Employee>
 
+@{
+    ViewData["Title"] = "Employee List";
 }
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg">
+
+        <div class="card-header bg-primary text-white">
+            <h2 class="text-center">Employee Details</h2>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover table-striped">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@data.Id</td>
+                            <td>@data.Name</td>
+                            <td>@data.Email</td>
+                            <td>@data.Department</td>
+
+                            <td>
+
+                                <a asp-action="Edit"
+                                       asp-controller="Home"
+                                       asp-route-id="@data.Id"
+                                       class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+
+                                <a asp-action="Delete"
+                                       asp-controller="Employee"
+                                       asp-route-id="@data.Id"
+                                       class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
 @section newsection
 {
     <script src="~/js/customefile.js"></script>

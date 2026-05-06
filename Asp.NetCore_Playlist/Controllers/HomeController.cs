@@ -16,10 +16,12 @@ namespace Asp.NetCore_Playlist.Controllers
         //This home controller is not creating an instance of IEmployeeRepository using new keyword instead of it we are injecting it into this constructor
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IHostingEnvironment _hostingenviornment;
-        public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment)
+        private readonly ILogger<HomeController> _logger;
+        public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
         {
             _employeeRepository = employeeRepository;
             _hostingenviornment = hostingEnvironment;
+            _logger = logger;
 
             //_employeeRepository = new MockEmployeeRepository(); -> We are not doing this because its tightly bind with this controller & we have many controller also which creates an issue
 
@@ -134,6 +136,25 @@ namespace Asp.NetCore_Playlist.Controllers
             bool value = _employeeRepository.UpdateEditData(eeml); 
             
             return View(eeml);
+        }
+
+        public ActionResult LoggingMethod()
+        {
+            try
+            {
+                int a = 10;
+                int b = 0;
+
+                int result = a / b;
+
+                _logger.LogInformation("Division successful");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Divide by zero exception occurred");
+            }
+
+            return View();
         }
     }
 }

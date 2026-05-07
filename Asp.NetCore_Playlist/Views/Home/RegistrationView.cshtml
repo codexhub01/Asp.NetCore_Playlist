@@ -1,0 +1,13 @@
+﻿@model Asp.NetCore_Playlist.ViewModels.RegisterViewModel;
+
+<form asp-action="Register" method="post">
+
+    <input asp-for="Email" />
+
+    <input asp-for="Password" />
+
+    <input asp-for="ConfirmPassword" />
+
+    <button type="submit">Register</button>
+
+</form>

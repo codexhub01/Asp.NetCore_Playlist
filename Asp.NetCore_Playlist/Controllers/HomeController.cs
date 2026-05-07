@@ -1,5 +1,6 @@
 using Asp.NetCore_Playlist.Models;
 using Asp.NetCore_Playlist.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +25,11 @@ namespace Asp.NetCore_Playlist.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<useraccess> _usermanager;
         private readonly SignInManager<useraccess> _signmanager;
-        public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
+        public HomeController(IEmployeeRepository employeeRepository , IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger , UserManager<useraccess> userManager)
         {
             _employeeRepository = employeeRepository;
             _hostingenviornment = hostingEnvironment;
+            _usermanager = userManager;
             _logger = logger;
 
             //_employeeRepository = new MockEmployeeRepository(); -> We are not doing this because its tightly bind with this controller & we have many controller also which creates an issue
@@ -161,6 +163,50 @@ namespace Asp.NetCore_Playlist.Controllers
                 _logger.LogError(ex, "Divide by zero exception occurred");
             }
 
+            return View();
+        }
+
+        public ActionResult RegistrationUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new useraccess
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                };
+
+                var result = await _usermanager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Login");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return View(model);
+        }
+
+        [Authorize]
+        public ActionResult authorizationmethod()
+        {
+            return View();
+        }
+
+        [Authorize(Roles ="Admin")]
+        public ActionResult deleteuser()
+        {
             return View();
         }
     }

@@ -21,7 +21,7 @@ builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 // Here AddDbContextPool checks if there's alraedy instance created then use that only instaed of creating brand new isntance 
 builder.Services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDBConnection")));
 
-//builder.Services.AddIdentity<useraccess , IdentityRole>().AddEntityFrameworkStores<AppDbContext>
+builder.Services.AddIdentity<useraccess, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -29,9 +29,9 @@ var app = builder.Build();
 //app.Run();
 
 //remove default loggers
-builder.Logging.ClearProviders();
+//builder.Logging.ClearProviders();
 
-builder.Host.UseNLog();
+//builder.Host.UseNLog();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

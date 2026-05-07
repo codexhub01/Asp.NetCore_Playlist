@@ -544,3 +544,7 @@ C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\obj\Debug\net10
 C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\obj\Debug\net10.0\compressed\rmzka4nr0v-{0}-w0gms4gy0v-w0gms4gy0v.gz
 C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\obj\Debug\net10.0\compressed\ogqrkuc8oe-{0}-i62jd590hj-i62jd590hj.gz
 C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\obj\Debug\net10.0\compressed\wnsos69p64-{0}-7g5exmj95a-7g5exmj95a.gz
+C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\bin\Debug\net10.0\NLog.dll
+C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\bin\Debug\net10.0\NLog.Extensions.Logging.dll
+C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\bin\Debug\net10.0\NLog.Web.AspNetCore.dll
+C:\Users\mayan\Desktop\Asp.NetCore_Playlist\Asp.NetCore_Playlist\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

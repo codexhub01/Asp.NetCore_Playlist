@@ -209,5 +209,24 @@ namespace Asp.NetCore_Playlist.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult dataannotationRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult dataannotationRegister(ClientSideViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return Content("Form Submitted Successfully");
+            }
+
+            return View(model);
+        }
+
+
     }
 }

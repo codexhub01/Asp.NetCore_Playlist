@@ -227,6 +227,10 @@ namespace Asp.NetCore_Playlist.Controllers
             return View(model);
         }
 
-
+        public IActionResult returntempdata()
+        {
+            TempData["Success"] = "Data Saved Successfully";
+            return View();
+        }
     }
 }

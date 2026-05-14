@@ -232,5 +232,11 @@ namespace Asp.NetCore_Playlist.Controllers
             TempData["Success"] = "Data Saved Successfully";
             return View();
         }
+
+        public ContentResult CreateCookie()
+        {
+            Response.Cookies.Append("username", "MayankPal");
+            return Content("created cookie");
+        }
     }
 }

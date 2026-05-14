@@ -55,6 +55,12 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+builder.Services.AddSession(); //to add session services
+app.UseSession(); //use session middleware
+
+
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")

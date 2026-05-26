@@ -156,6 +156,7 @@ namespace Asp.NetCore_Playlist.Controllers
 
                 int result = a / b;
 
+                //Its just a Ilogger
                 _logger.LogInformation("Division successful");
             }
             catch (Exception ex)

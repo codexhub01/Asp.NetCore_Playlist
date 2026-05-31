@@ -259,5 +259,27 @@ namespace Asp.NetCore_Playlist.Controllers
 
             return Content("Session Removed");
         }
+
+        //Setting cookie
+        public IActionResult SetCookie()
+        {
+            Response.Cookies.Append(
+                "UserName",
+                "Mayank");
+
+            return Content("Cookie Created");
+        }
+
+        //Getting Cookie
+        public IActionResult GetCookie()
+        {
+            string userName =
+                Request.Cookies["UserName"];
+
+            return Content(userName);
+        }
+
+
+
     }
 }

@@ -12,6 +12,8 @@ namespace Asp.NetCore_Playlist.Models
 
         public DbSet<Employee> Employees { get; set; }
 
+        public DbSet<Employeer> emmployeer { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Bascially when we want to seed or insert with some initial data taht's what we do here
@@ -27,6 +29,24 @@ namespace Asp.NetCore_Playlist.Models
                         FilePath=""
                     }
                 );
+
+            modelBuilder.Entity<Employeer>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Name)
+                      .IsRequired()
+                      .HasMaxLength(100);
+
+                entity.Property(e => e.Designation)
+                      .IsRequired()
+                      .HasMaxLength(50);
+
+                entity.Property(e => e.Level)
+                      .IsRequired();
+            });
+
+
         }
     }
 }

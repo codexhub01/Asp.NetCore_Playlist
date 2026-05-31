@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Asp.NetCore_Playlist")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0bf3ee90079285ae84857a4445969b9f24d658b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f343540b5c6f3875e84a41cd1473720a6a0e9ea6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Asp.NetCore_Playlist")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Asp.NetCore_Playlist")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
